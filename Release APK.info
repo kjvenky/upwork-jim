@@ -1,0 +1,25 @@
+Release APK
+
+https://facebook.github.io/react-native/docs/signed-apk-android.html
+
+keytool -genkey -v -keystore transin_fleetOwner.keystore -alias transin_fleetOwner -keyalg RSA -keysize 2048 -validity 10000
+
+Password@keystore : Sec....1
+
+
+cd android && ./gradlew clean && ./gradlew assembleRelease
+cd android && ./gradlew clean
+cd .. && react-native run-android --configuration=release
+
+---------------------------
+Error : Original is here. The version qualifier may be implied
+https://github.com/facebook/react-native/issues/5787
+In my case, it was just a matter of removing the $(rn_project)\android\app\src\main\res\drawable-* like suggested, then running ./gradlew clean and then trying to compile again
+
+
+Add "-v4 "
+/fleetowner/node_modules/react-native/local-cli/bundle/assetpathUtils.js
+
+
+Error: try to fix iconBitmap java.lang.NullPointerException
+https://github.com/greycats/react-native-maps/commit/b0e0fc4327d336d55deed633aecf1b1551307e44
